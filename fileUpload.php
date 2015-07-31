@@ -1,5 +1,15 @@
 <?php
 
+function RandomString()
+{
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyz';
+    $randstring = '';
+    for ($i = 0; $i < 32; $i++) {
+        $randstring .= $characters[rand(0, strlen($characters))];
+    }
+    return $randstring;
+}
+
 $target_dir = "../files/media";
 
 if (!file_exists($target_dir)) {
