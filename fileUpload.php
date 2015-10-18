@@ -20,6 +20,14 @@ $fileName = RandomString();
 $originalFileName = $_FILES["photo"]["name"];
 $target_dir = $target_dir . "/" . $fileName . ".jpg"; //you can use .jpg or whatever mimetype
 
+$type = mysql_real_escape_string($type);
+$category = mysql_real_escape_string($category);
+$description = mysql_real_escape_string($description);
+$date = mysql_real_escape_string($date);
+$value = mysql_real_escape_string($value);
+$fileName = mysql_real_escape_string($fileName);
+$originalFileName = mysql_real_escape_string($originalFileName);
+
 if (move_uploaded_file($_FILES["photo"]["tmp_name"], $target_dir)) {
     $query = $db->query("
         INSERT INTO table_names (`type`, category, description, `date`, `value`, attachment, attachment_description)
